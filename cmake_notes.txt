@@ -1,0 +1,43 @@
+
+=============== Tutorial 1 ===============================
+
+References and Links:
+https://github.com/brechtsanders/winlibs_mingw
+
+To check the version of compilers:
+gcc --version
+g++ --version
+
+To get help about gcc and g++ :
+gcc --help
+g++ --help
+
+
+To build a cpp file:
+g++ -g -std=c++20 main.cpp -o add
+
+
+cl.exe is a cpp compiler from microsoft which can be found in windows powershell.
+we can build exe files with cl.exe:
+cl.exe /Zi /std:c++latest /EHsc /Fe: rooster.exe main.cpp
+
+https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/
+sudo apt install gcc-8 g++-8 gcc-9 g++-9 gcc-10 g++10
+
+
+To debug cpp programs use gdb:
+sudo apt-get install gdb
+gdb --version
+gdb --help
+
+
+# cmake makes make file
+
+Install cmake :
+sudo apt-get install cmake
+
+make --version
+cmake --version
+
+make --help
+cmake --help
