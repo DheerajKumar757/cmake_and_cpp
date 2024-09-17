@@ -41,3 +41,27 @@ cmake --version
 
 make --help
 cmake --help
+
+
+==================== Tutorial 2 ====================
+
+project(HelloApp        -> executable name
+        VERSION 0.0.1       -> version of executable
+        DESCRIPTION "The leading Hello World App"
+        LANGUAGE CXX)
+
+add_executable(HelloAppBinary main.cpp) -> we can add mkultiple source files here
+
+cmake selects the compiler on board on the system
+
+cmake does its work in mainly two steps:
+-- Configuring done     
+-- Generating done
+
+
+target_compile_features(HelloAppBinary PRIVATE cxx_std_20)      // PRIVATE is important, will learn about it in future Tutorial
+
+-> making a seperate build folder is known as out of source build
+
+we can build project like
+cmake -S <source_dir> -B <build_dir>
