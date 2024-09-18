@@ -65,3 +65,67 @@ target_compile_features(HelloAppBinary PRIVATE cxx_std_20)      // PRIVATE is im
 
 we can build project like
 cmake -S <source_dir> -B <build_dir>
+
+when we run the command cmake it looks for CMakeLists.txt file in the specified source directory
+when we run the command make it looks  for Makefile
+
+First cross platfrom app is ready on window it will generate visual studio solution and on ubuntu it will generate object file.
+
+
+==================== Tutorial 3 ====================
+
+Generators:
+    A way to tell CMake which build system it's going to generate a project for.
+
+Windows :
+    Visual Studio Project 
+    Mingw Project
+    Ninja Project
+
+Linux :
+    Unix Makefile Project
+    Ninja
+
+About Ninja:
+https://ninja-build.org/
+
+
+we can see the list of generators in cmake -h
+With the help of different generators we can build a project for different IDE and platfrom as well
+
+cmake -G "Ninja" -S source/ -B build/
+cmake -G "Unix Makefiles" -S source/ -B build/
+
+ninja --version
+ninja --help
+
+==================== Tutorial 4 ====================
+
+We saw that cmake can generate projects for multiple IDE and platform.
+then we need to call either make, ninja or msbuild according to project.
+sometime it can be confusing, so we need a unified way to build.
+
+cmake has a command to handle this.
+Once the project build is completed using:
+cmake -S <src_dir> -B <build_dir>
+we can generate binary using:
+cmake --build <build_dir>       
+# above command is very useful, it can work even if we have ninja, mingw, make 
+# or vscode file. it wraps all underlying.
+
+Target is one written in CMakeLists.txt
+# To know about the target obtions of specific project like ninja or make,
+# and what we can perform with it.
+cmake --build . --target help   # run inside build folder.
+
+To clean => run inside build folder
+cmake --build . --target clean
+
+To build specific target.
+cmake --build . --target <target_name>
+
+To build all target:
+cmake --build . --target all
+
+
+
