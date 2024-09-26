@@ -127,5 +127,13 @@ cmake --build . --target <target_name>
 To build all target:
 cmake --build . --target all
 
+==================== Tutorial 5 ====================
+
+target_include_directories(HelloBinary PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+above line helps to create the header files so that we can use or include it directly
+without any need to provide relative or absolute path in src files.
+
+It is advised not to use globbing like "GLOB_RECURSE"
 
 
